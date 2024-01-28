@@ -72,7 +72,7 @@ class Server:
                 count += 1
             else:
                 i += 1
-        next_index = i if i < keys[-1] else None
+        next_index = i
 
         return {
             'index': index,
