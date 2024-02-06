@@ -16,7 +16,7 @@ users = {
 }
 
 
-def get_user(login_as=None):
+def get_user(login_as: int = None):
     """mock login function"""
     if not login_as or login_as not in users:
         return None
@@ -36,7 +36,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """gets a local for language to load"""
     locale = request.args.get("locale")
     locale = locale if locale else g.user.get("locale") if g.get("user")\
@@ -65,7 +65,7 @@ def get_timezone():
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """before request"""
     login_as = request.args.get("login_as")
     try:
@@ -76,7 +76,7 @@ def before_request():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """home"""
     return render_template('7-index.html')
 

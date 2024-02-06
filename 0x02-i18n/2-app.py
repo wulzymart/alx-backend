@@ -19,13 +19,13 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """gets a local for language to load"""
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """home"""
     return render_template('2-index.html')
 
